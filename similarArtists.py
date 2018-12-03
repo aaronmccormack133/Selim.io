@@ -6,8 +6,13 @@ apiKey = os.environ.get('LAST.FM_API')
 sharedSecret = os.environ.get('LAST.FM_SS')
 
 url = "http://ws.audioscrobbler.com/2.0/?"
-artistName = 'Iron Maiden'
-limit = '5'
+
+artistName = input('Artist: ')
+if (' ' in artistName):
+    artistName = artistName.replace(' ', '+')
+    artistName = artistName.strip()
+
+limit = input('Limit: ')
 params = ('method=artist.getSimilar&artist=' 
     + artistName 
     + '&api_key=' 
@@ -16,9 +21,14 @@ params = ('method=artist.getSimilar&artist='
     + limit)
 
 def apiCall (apiUrl, params):
-    urlReq = requests.get(apiUrl + params)
-    response = urlReq.text
+    response = requests.get(apiUrl + params).json()
 
-    print(response)
+    file = open('bin/SimilarArtist/artistOne.txt', 'w')
+
+    for artist in response["similarartists"]["artist"]:
+        print(artist['name'])
+        file.writelines('%s\n' % artist['name'])
+
+    file.close()
             
 apiCall(url, params)
