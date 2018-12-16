@@ -18,8 +18,9 @@ def concertCall(input):
 	bandsintownKey = os.environ.get('BIT_API')
     # The query for ticketmaster
 	if(getInput('all')(input)):
-		params = (ticketmaster + 'apiKey=' + ticketMasterKey + '&countryCode=IE')
+		params = (ticketmaster + 'apikey=' + ticketMasterKey + '&countryCode=IE&sort=date,asc&city=Dublin&size=40')
 		response = requests.get(params).json()
+		print(params)
 		for event in response["_embedded"]["events"]:
 			file.writelines('%s\n' % event["name"])
 
