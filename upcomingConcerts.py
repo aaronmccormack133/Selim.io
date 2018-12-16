@@ -1,21 +1,47 @@
 import os
 import json
 import requests
+import re
 
-apiKey = os.environ.get('TICKETMASTER_API')
+query = input('Query: ')
 
-url = "https://app.ticketmaster.com/discovery/v2/events.json?"
+def getInput(input):
+    return re.compile(r'\b({0})\b'.format(input), flags=re.IGNORECASE).search
 
-params = (url + 'apikey=' + apiKey + '&countryCode=IE')
+def concertCall(input):
+	ticketmaster = "https://app.ticketmaster.com/discovery/v2/events.json?"
+	bandsintown = 'https://rest.bandsintown.com/artists/'
 
-response = requests.get(params).json()
-file = open('bin/UpcomingConcerts/one.txt', 'w')
+	file = open('bin/UpcomingConcerts/one.txt', 'w')
 
-for event in response["_embedded"]["events"]:
-	# events = event["name"]
-	
-	file.writelines('%s\n' % event["name"])
-	print(event["name"])
-	print(event["dates"]["start"]["dateTime"])
-	
-file.close()
+	ticketMasterKey = os.environ.get('TICKETMASTER_API')
+	bandsintownKey = os.environ.get('BIT_API')
+    # The query for ticketmaster
+	if(getInput('all')(input)):
+		params = (ticketmaster + 'apiKey=' + ticketMasterKey + '&countryCode=IE')
+		response = requests.get(params).json()
+		for event in response["_embedded"]["events"]:
+			file.writelines('%s\n' % event["name"])
+
+		file.close()
+	# The query for bandsintown
+	else:
+		if(' ' in input):
+			input = input.replace(' ', '%20')
+			input = input.strip()
+			params = (bandsintown + input + '/events?' +
+			          'app_id=' + bandsintownKey + '&date=upcoming')
+		else:
+			params = (bandsintown + input + '/events?' + 
+						'app_id=' + bandsintownKey + '&date=upcoming')
+
+		response = requests.get(params).json()
+		for event in response:
+			file.writelines('\n%s\n' % event["datetime"] + input)
+			file.writelines('\n%s' % event["venue"]["city"])
+		
+
+		file.close()
+
+
+concertCall(query)
