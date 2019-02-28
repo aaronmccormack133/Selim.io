@@ -39,7 +39,7 @@ def concertCall(input):
 		response = requests.get(params).json()
 		for event in response:
 			file.writelines('\n%s\n' % event["datetime"] + input)
-			file.writelines('\n%s' % event["venue"]["city"])
+			file.writelines('\n%s' % event["venue"]["city"].encode('UTF-8'))
 		
 
 		file.close()

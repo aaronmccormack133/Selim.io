@@ -1,40 +1,118 @@
-HamsandwicH
-Les Miserables (Touring)
-A tribute to Studio 54 feat: SOPHISTAFUNK
-The Murder Capital
-Oldskool - Live Band : Christmas Hip Hop Party
-Greatest Hits of Motown
-Fangclub
-Christmas At Croke Park - Santa Experience Tour
-Little Red Riding Hood
-The Snow Queen
-Les Miserables (Touring)
-Ericsson Skyline Dusk Tour
-Heineken Champions Cup: Leinster Ruby v Bath - Platinum Tickets
-Heineken Champions Cup - Leinster Rugby v Bath
-The Snow Queen
-Hozier
-Moxie
-HamsandwicH
-The Academic
-Les Miserables (Touring)
-Complete Madness
-Cat Dowling
-The Blades
-Allan Rayman
-Oldskool - Live Band : Christmas Hip Hop Party
-Pokey Lafarge
-Christmas At Croke Park - Santa Experience Tour
-The Snow Queen
-Les Miserables (Touring)
-A Very Merry Line-Up Christmas!
-Ericsson Skyline Dusk Tour
-The Snow Queen
-Josh Groban
-Hozier
-The Academic
-Sir The Baptist
-Jerry Fish
-Bobby & the Blunts
-Unhinged Comedy: 16th December 2018
-Flogging Molly
+
+2019-01-10T19:00:02
+Behemoth
+b'Frankfurt'
+2019-01-11T19:00:33
+Behemoth
+b'Munich'
+2019-01-12T18:30:00
+Behemoth
+b'Karl\xc3\xadn'
+2019-01-13T19:00:56
+Behemoth
+b'Vienna'
+2019-01-15T19:00:41
+Behemoth
+b'Z\xc3\xbcrich'
+2019-01-16T19:00:01
+Behemoth
+b'Milano'
+2019-01-17T19:00:28
+Behemoth
+b'Lyon'
+2019-01-18T19:00:05
+Behemoth
+b'Barcelona'
+2019-01-19T19:00:31
+Behemoth
+b'Madrid'
+2019-01-21T19:00:54
+Behemoth
+b'Toulouse'
+2019-01-22T19:00:17
+Behemoth
+b'Paris'
+2019-01-23T19:00:44
+Behemoth
+b'Oberhausen'
+2019-01-24T19:00:07
+Behemoth
+b'Berlin'
+2019-01-25T19:00:28
+Behemoth
+b'K\xc3\xb8benhavn V'
+2019-01-26T19:00:50
+Behemoth
+b'Stockholm'
+2019-01-27T19:00:45
+Behemoth
+b'Oslo'
+2019-01-29T19:00:12
+Behemoth
+b'Helsingfors'
+2019-01-30T19:00:33
+Behemoth
+b'Tampere'
+2019-02-01T19:00:05
+Behemoth
+b'Hamburg'
+2019-02-02T18:30:00
+Behemoth
+b'Utrecht'
+2019-02-03T18:30:00
+Behemoth
+b'Brussel'
+2019-02-04T19:00:31
+Behemoth
+b'Esch-sur-alzette'
+2019-02-06T19:00:01
+Behemoth
+b'Bristol'
+2019-02-07T19:00:26
+Behemoth
+b'Birmingham'
+2019-02-08T19:00:50
+Behemoth
+b'London'
+2019-02-09T19:00:11
+Behemoth
+b'Manchester'
+2019-02-10T19:00:38
+Behemoth
+b'Dublin'
+2019-02-11T19:00:01
+Behemoth
+b'Glasgow'
+2019-02-20T19:00:51
+Behemoth
+b'\xd7\xaa\xd7\x9c \xd7\x90\xd7\x91\xd7\x99\xd7\x91 \xd7\x99\xd7\xa4\xd7\x95'
+2019-02-23T19:00:27
+Behemoth
+b'Istanbul'
+2019-03-07T19:00:02
+Behemoth
+b'Brisbane City'
+2019-03-09T19:00:04
+Behemoth
+b'Sydney'
+2019-03-11T19:00:15
+Behemoth
+b'Melbourne'
+2019-03-13T19:00:32
+Behemoth
+b'Hindmarsh'
+2019-06-07T19:00:00
+Behemoth
+b'N\xc3\xbcrburg'
+2019-06-07T19:00:14
+Behemoth
+b'N\xc3\xbcrnberg'
+2019-06-14T19:00:02
+Behemoth
+b'Nickelsdorf'
+2019-06-20T19:00:11
+Behemoth
+b'Clisson'
+2019-06-27T13:00:00
+Behemoth
+b'Oslo'
