@@ -3,6 +3,7 @@ import json
 import requests
 
 import config
+import tts
 
 # apiKey = os.environ.get('LAST.FM_API')
 apiKey = config.LASTFM_API
@@ -31,6 +32,7 @@ def apiCall (apiUrl, params):
 
     for artist in response["similarartists"]["artist"]:
         print(artist['name'])
+        tts.speak(artist['name'])
         file.writelines('%s\n' % artist['name'])
 
     file.close()

@@ -1,4 +1,6 @@
-import win32com.client as wincl
+import pyttsx3
 
-speak = wincl.Dispatch("SAPI.SpVoice")
-speak.Speak("Hello World")
+def speak(input):
+    engine = pyttsx3.init()
+    engine.say(input)
+    engine.runAndWait()
