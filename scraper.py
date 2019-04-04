@@ -1,8 +1,12 @@
 # https://www.youtube.com/watch?v=F1kZ39SvuGE
+# external imports
 from bs4 import BeautifulSoup
 import requests
 import os
 import config
+
+# files
+import tts
 
 # url = os.environ.get('SELIM_SCRAPE_URL')
 url = config.SELIM_SCRAPE_URL
@@ -32,6 +36,9 @@ for tr in calender.find_all('tr'):
     file.writelines('%s\n' % artistName.encode('utf-8'))
     print(albumName)
     file.writelines('%s\n' % albumName.encode('utf-8'))
+
+    fullTitle = artistName + albumName
+    tts.speak(fullTitle)
 
 file.close()
 

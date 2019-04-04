@@ -1,8 +1,13 @@
+# external imports
 import os
 import json
 import requests
 import re
+
+# files
 import config
+import tts
+
 
 query = input('Query: ')
 
@@ -25,6 +30,7 @@ def concertCall(input):
 		response = requests.get(params).json()
 		print(params)
 		for event in response["_embedded"]["events"]:
+			tts.speak(event['name'])
 			file.writelines('%s\n' % event["name"])
 
 		file.close()
