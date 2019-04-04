@@ -2,8 +2,10 @@
 from bs4 import BeautifulSoup
 import requests
 import os
+import config
 
-url = os.environ.get('SELIM_SCRAPE_URL')
+# url = os.environ.get('SELIM_SCRAPE_URL')
+url = config.SELIM_SCRAPE_URL
 print(url)
 pageRequest = requests.get(url, headers={'User-Agent': 'Mozilla/5.0'})
 pageResp = pageRequest.content.decode('ISO-8859-1', 'replace')

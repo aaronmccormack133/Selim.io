@@ -2,8 +2,12 @@ import os
 import json
 import requests
 
-apiKey = os.environ.get('LAST.FM_API')
-sharedSecret = os.environ.get('LAST.FM_SS')
+import config
+
+# apiKey = os.environ.get('LAST.FM_API')
+apiKey = config.LASTFM_API
+# sharedSecret = os.environ.get('LAST.FM_SS')
+sharedSecret = config.LASTFM_SS
 
 url = "http://ws.audioscrobbler.com/2.0/?"
 

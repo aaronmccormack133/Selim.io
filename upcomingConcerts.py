@@ -2,6 +2,7 @@ import os
 import json
 import requests
 import re
+import config
 
 query = input('Query: ')
 
@@ -14,8 +15,10 @@ def concertCall(input):
 
 	file = open('bin/UpcomingConcerts/one.txt', 'w')
 
-	ticketMasterKey = os.environ.get('TICKETMASTER_API')
-	bandsintownKey = os.environ.get('BIT_API')
+	#ticketMasterKey = os.environ.get('TICKETMASTER_API')
+	ticketMasterKey = config.TICKETMASTER_API
+	# bandsintownKey = os.environ.get('BIT_API')
+	bandsintownKey = config.BIT_API
     # The query for ticketmaster
 	if(getInput('all')(input)):
 		params = (ticketmaster + 'apikey=' + ticketMasterKey + '&countryCode=IE&sort=date,asc&city=Dublin&size=40')
