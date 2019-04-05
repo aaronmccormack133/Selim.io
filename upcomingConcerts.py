@@ -11,6 +11,13 @@ import tts
 
 query = input('Query: ')
 
+def cleanEvent(eventResp):
+	eventDate = eventResp["datetime"].split('T')
+	eventDateTotal = eventDate[0].replace('-', ' ')
+	dateNonSplit = eventDateTotal.split(' ')
+	date = dateNonSplit[2] + ' ' + dateNonSplit[1] + ' ' + dateNonSplit[0]
+	return date
+
 def getInput(input):
     return re.compile(r'\b({0})\b'.format(input), flags=re.IGNORECASE).search
 
@@ -37,7 +44,6 @@ def concertCall(input):
 	# The query for bandsintown
 	else:
 		if(' ' in input):
-			input = input.replace(' ', '%20')
 			input = input.strip()
 			params = (bandsintown + input + '/events?' +
 			          'app_id=' + bandsintownKey + '&date=upcoming')
@@ -46,9 +52,13 @@ def concertCall(input):
 						'app_id=' + bandsintownKey + '&date=upcoming')
 
 		response = requests.get(params).json()
+		tts.speak(input)
 		for event in response:
-			file.writelines('\n%s\n' % event["datetime"] + input)
-			file.writelines('\n%s' % event["venue"]["city"].encode('UTF-8'))
+			date = cleanEvent(event)
+			file.writelines('\n%s\n' % date + input)
+			file.writelines('\n%s' % event["venue"]["city"])
+			total = event['venue']['city'] + date
+			tts.speak(total)
 		
 
 		file.close()
