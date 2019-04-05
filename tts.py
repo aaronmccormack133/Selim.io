@@ -6,7 +6,7 @@ import subprocess
 
 def speak(input):
     engine = pyttsx3.init()
-    voices = engine.getProperty('voices')
+    voice = engine.getProperty('voices')
     rate = engine.getProperty('rate')
     # for voice in voices:
     #     engine.setProperty('voice', voice.id)
