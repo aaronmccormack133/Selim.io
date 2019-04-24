@@ -39,7 +39,7 @@ class LRUCache:
         prev.next = next
         next.prev = prev
 
-    def _add(self node):
+    def _add(self, node):
         prev = self.tail.prev
         prev.next = Node
         self.tail.prev = Node
