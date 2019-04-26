@@ -8,7 +8,6 @@ import config
 # files
 import tts
 
-# url = os.environ.get('SELIM_SCRAPE_URL')
 url = config.SELIM_SCRAPE_URL
 print(url)
 pageRequest = requests.get(url, headers={'User-Agent': 'Mozilla/5.0'})
@@ -32,14 +31,10 @@ for tr in calender.find_all('tr'):
         albumName = tr.find('td', {'class': 'albumTitle'}).text.strip()
         
         
-    print(artistName)
     file.writelines('%s, ' % artistName)
-    print(albumName)
     file.writelines('%s\n' % albumName)
 
     # fullTitle = artistName + ', ' + albumName
     # tts.speak(fullTitle)
 
 file.close()
-
-# print(soup.encode('utf-8'))
