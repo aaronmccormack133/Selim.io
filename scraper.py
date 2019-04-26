@@ -33,12 +33,12 @@ for tr in calender.find_all('tr'):
         
         
     print(artistName)
-    file.writelines('%s\n' % artistName.encode('utf-8'))
+    file.writelines('%s\n' % artistName)
     print(albumName)
-    file.writelines('%s\n' % albumName.encode('utf-8'))
+    file.writelines('%s\n' % albumName)
 
-    fullTitle = artistName + ', ' + albumName
-    tts.speak(fullTitle)
+    # fullTitle = artistName + ', ' + albumName
+    # tts.speak(fullTitle)
 
 file.close()
 

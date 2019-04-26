@@ -9,8 +9,6 @@ import config
 import tts
 
 
-query = input('Query: ')
-
 # Cleaning up the output for events
 # Input: event json
 # Output: date format = DD MM YYYY
@@ -36,6 +34,8 @@ def ticketMasterCall():
 	file.close()
 
 def bandsintownCall(artist):
+	# Call the LRU here, checking to see if its in the list
+	# if not add it
 	file = open('bin/UpcomingConcerts/one.txt', 'w')
 	bandsintown = 'https://rest.bandsintown.com/artists/'
 	bandsintownKey = config.BIT_API
@@ -68,15 +68,9 @@ def getInput(input):
 # Input: User input, band
 # Output: User output, Event name, location, date
 def concertCall(input):
-
-	#ticketMasterKey = os.environ.get('TICKETMASTER_API')
-	# bandsintownKey = os.environ.get('BIT_API')
     # The query for ticketmaster
 	if(getInput('all')(input)):
 		ticketMasterCall()
 	# The query for bandsintown
 	else:
 		bandsintownCall(input)
-
-
-concertCall(query)
