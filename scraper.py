@@ -33,7 +33,7 @@ for tr in calender.find_all('tr'):
         
         
     print(artistName)
-    file.writelines('%s\n' % artistName)
+    file.writelines('%s, ' % artistName)
     print(albumName)
     file.writelines('%s\n' % albumName)
 

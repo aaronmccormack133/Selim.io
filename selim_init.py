@@ -2,7 +2,9 @@ import upcomingConcerts as uc
 import config 
 import tts 
 import similarArtists as sa
-# import scraper
+import upcomingAlbums as ua
+
+import time
 
 tts.speak('Saylem activated')
 tts.speak("What would you like?")
@@ -24,3 +26,7 @@ elif((query == "upcoming concerts") or (query == "upcoming shows") or (query == 
         tts.speak('what artist would you like?')
         artistCall = input()
         uc.concertCall(artistCall)
+elif((query == "new albums") or (query == "new album releases") or ("upcoming albums")):
+    tts.speak("Albums being released soon are")
+    time.sleep(1)
+    ua.upcoming()
