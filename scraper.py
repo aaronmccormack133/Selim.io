@@ -1,4 +1,3 @@
-# https://www.youtube.com/watch?v=F1kZ39SvuGE
 # external imports
 from bs4 import BeautifulSoup
 import requests
@@ -6,17 +5,18 @@ import os
 import config
 
 # files
-import tts
 
 url = config.SELIM_SCRAPE_URL
-print(url)
 pageRequest = requests.get(url, headers={'User-Agent': 'Mozilla/5.0'})
 pageResp = pageRequest.content.decode('ISO-8859-1', 'replace')
 
 soup = BeautifulSoup(pageResp, 'html.parser')
 calender = soup.find('table', {'class': 'musicTable'})
 
-file = open('bin/UpcomingAlbums/upcomingRelease.txt', 'w')
+# computer
+file = open('/home/aaron/Documents/Selim.io/bin/UpcomingAlbums/upcomingRelease.txt', 'w')
+# pi
+#file = open('/home/pi/Documents/Selim.io/bin/UpcomingAlbums/upcomingRelease.txt')
 
 for tr in calender.find_all('tr'):
     if tr.find('a') is None:
