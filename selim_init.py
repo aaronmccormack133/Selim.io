@@ -15,7 +15,7 @@ start = input()
 
 def main_flow():
     similar_artist_keyword = ['similar', 'like', 'artist', 'artists']
-    upcoming_shows_keyword = ['concert', 'shows', 'gig', 'gigs', 'show', 'event']
+    upcoming_shows_keyword = ['concert', 'concerts', 'shows', 'gig', 'gigs', 'show', 'event']
     upcoming_albums_keyword = ['albums', 'new', 'album', 'release', 'releases', 'records']
 
     tts.speak('Saylem activated')
@@ -37,12 +37,20 @@ def main_flow():
             concertType = input()
             if('all' in concertType):
             # getting all upcoming concerts
-                uc.concertCall('all')
+                tts.speak('Specify a location')
+                city = input()
+                tts.speak('Is there a limit you would like to set on the results')
+                limit = input()
+                if('no' in limit):
+                    uc.concertCall('all', city, '40')
+                else:
+                    uc.concertCall('all', city, limit)
+                # uc.concertCall('all', city, limit)
             else:
             # getting artist specific concerts
                 tts.speak('what artist would you like?')
                 artistCall = input()
-                uc.concertCall(artistCall)
+                uc.concertCall(artistCall, None, None)
         elif(i in upcoming_albums_keyword):
         # getting new albums
             tts.speak("Albums being released soon are")

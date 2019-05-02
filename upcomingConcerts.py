@@ -8,7 +8,7 @@ import re
 import config
 import tts
 
-query = input('Query: ')
+# query = input('Query: ')
 
 ticketmaster = "https://app.ticketmaster.com/discovery/v2/events.json?"
 ticketMasterKey = config.TICKETMASTER_API
@@ -26,8 +26,8 @@ def cleanEvent(eventResp):
 	date = dateNonSplit[2] + ' ' + dateNonSplit[1] + ' ' + dateNonSplit[0]
 	return date
 
-def ticketMasterCall():
-	params = (ticketmaster + 'apikey=' + ticketMasterKey + '&countryCode=IE&sort=date,asc&city=Dublin&size=40')
+def ticketMasterCall(city, results):
+	params = (ticketmaster + 'apikey=' + ticketMasterKey + '&countryCode=IE&sort=date,asc&city=' + city + '&size=' + results)
 	response = requests.get(params).json()
 	print(params)
 	for event in response["_embedded"]["events"]:
@@ -45,7 +45,6 @@ def bandsintownCall(artist):
 		artistParam = artist
 		artistParam = artistParam.replace(' ', '%20')
 		artistParam = artistParam.strip()
-		print(artistParam)
 		params = (bandsintown + artistParam + '/events?' +
 		          'app_id=' + bandsintownKey + '&date=upcoming')
 	else:
@@ -70,12 +69,12 @@ def getInput(input):
 # Api Call
 # Input: User input, band
 # Output: User output, Event name, location, date
-def concertCall(input):
+def concertCall(input, city, limit):
     # The query for ticketmaster
 	if(getInput('all')(input)):
-		ticketMasterCall()
+		ticketMasterCall(city, limit)
 	# The query for bandsintown
 	else:
 		bandsintownCall(input)
 
-concertCall(query)
+# concertCall(query)
