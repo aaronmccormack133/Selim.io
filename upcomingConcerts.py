@@ -8,6 +8,13 @@ import re
 import config
 import tts
 
+query = input('Query: ')
+
+ticketmaster = "https://app.ticketmaster.com/discovery/v2/events.json?"
+ticketMasterKey = config.TICKETMASTER_API
+bandsintown = 'https://rest.bandsintown.com/artists/'
+bandsintownKey = config.BIT_API
+file = open('bin/UpcomingConcerts/one.txt', 'w')
 
 # Cleaning up the output for events
 # Input: event json
@@ -20,10 +27,6 @@ def cleanEvent(eventResp):
 	return date
 
 def ticketMasterCall():
-	ticketmaster = "https://app.ticketmaster.com/discovery/v2/events.json?"
-	ticketMasterKey = config.TICKETMASTER_API
-	file = open('bin/UpcomingConcerts/one.txt', 'w')
-
 	params = (ticketmaster + 'apikey=' + ticketMasterKey + '&countryCode=IE&sort=date,asc&city=Dublin&size=40')
 	response = requests.get(params).json()
 	print(params)
@@ -36,21 +39,21 @@ def ticketMasterCall():
 def bandsintownCall(artist):
 	# Call the LRU here, checking to see if its in the list
 	# if not add it
-	file = open('bin/UpcomingConcerts/one.txt', 'w')
-	bandsintown = 'https://rest.bandsintown.com/artists/'
-	bandsintownKey = config.BIT_API
-
+	tts.speak(artist)
 
 	if(' ' in artist):
-		artist = artist.strip()
-		params = (bandsintown + artist + '/events?' +
+		artistParam = artist
+		artistParam = artistParam.replace(' ', '%20')
+		artistParam = artistParam.strip()
+		print(artistParam)
+		params = (bandsintown + artistParam + '/events?' +
 		          'app_id=' + bandsintownKey + '&date=upcoming')
 	else:
-		params = (bandsintown + artist + '/events?' + 
+		params = (bandsintown + artistParam + '/events?' + 
 					'app_id=' + bandsintownKey + '&date=upcoming')
 
+	print(params)
 	response = requests.get(params).json()
-	tts.speak(artist)
 	for event in response:
 		date = cleanEvent(event)
 		file.writelines('\n%s\n' % date + artist)
@@ -74,3 +77,5 @@ def concertCall(input):
 	# The query for bandsintown
 	else:
 		bandsintownCall(input)
+
+concertCall(query)

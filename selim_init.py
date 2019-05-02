@@ -10,16 +10,14 @@ import time
 
 tts.speak('Saylem initialized. Say my name when you would like to start')
 start = input()
-if('Selim' or 'Saylem' in start):
-    main_flow()
-
-similar_artist_keyword = ['similar', 'like', 'artist', 'artists']
-upcoming_shows_keyword = ['concert', 'shows', 'gig', 'gigs', 'show', 'event']
-upcoming_albums_keyword = ['albums', 'new', 'album', 'release', 'releases', 'records']
 
 # if(query in similar_artist_keyword):
 
 def main_flow():
+    similar_artist_keyword = ['similar', 'like', 'artist', 'artists']
+    upcoming_shows_keyword = ['concert', 'shows', 'gig', 'gigs', 'show', 'event']
+    upcoming_albums_keyword = ['albums', 'new', 'album', 'release', 'releases', 'records']
+
     tts.speak('Saylem activated')
     tts.speak("What would you like?")
     query = input()
@@ -52,4 +50,8 @@ def main_flow():
             ua.upcoming()
         else:
             tts.speak('query not found')
+
+if('Selim' or 'Saylem' in start):
+    main_flow()
+
         
