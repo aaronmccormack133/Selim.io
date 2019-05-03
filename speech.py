@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 import speech_recognition as SR
 
 r = SR.Recognizer()

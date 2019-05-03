@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 # external imports
 import os
 import json

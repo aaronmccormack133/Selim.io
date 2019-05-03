@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 # files
 import upcomingConcerts as uc
 import config 
