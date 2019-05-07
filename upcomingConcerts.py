@@ -11,7 +11,7 @@ import tts
 
 # query = input('Query: ')
 
-ticketmaster = "https://app.ticketmaster.com/discovery/v2/events.json?"
+ticketmaster = "https://app.ticketmaster.com/discovery/v2/events.json?classificationName=music&"
 ticketMasterKey = config.TICKETMASTER_API
 bandsintown = 'https://rest.bandsintown.com/artists/'
 bandsintownKey = config.BIT_API
@@ -33,6 +33,7 @@ def ticketMasterCall(city, results):
 	print(params)
 	for event in response["_embedded"]["events"]:
 		tts.speak(event['name'])
+		print(event['name'])
 		file.writelines('%s\n' % event["name"])
 
 	file.close()
@@ -49,6 +50,7 @@ def bandsintownCall(artist):
 		params = (bandsintown + artistParam + '/events?' +
 		          'app_id=' + bandsintownKey + '&date=upcoming')
 	else:
+		artistParam = artist
 		params = (bandsintown + artistParam + '/events?' + 
 					'app_id=' + bandsintownKey + '&date=upcoming')
 
@@ -60,6 +62,7 @@ def bandsintownCall(artist):
 		file.writelines('\n%s' % event["venue"]["city"])
 		total = event['venue']['city'] + date
 		tts.speak(total)
+		print(total)
 		
 	file.close()
 

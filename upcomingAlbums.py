@@ -7,3 +7,4 @@ def upcoming():
     f = file.readlines()
     for x in f:
         tts.speak(x)
+        print(x)
