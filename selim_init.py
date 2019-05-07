@@ -5,6 +5,7 @@ import config
 import tts 
 import similarArtists as sa
 import upcomingAlbums as ua
+import reminder
 
 # external imports
 import time
@@ -14,6 +15,7 @@ print('Saylem initialized. Say my name when you would like to start')
 print('---------------------')
 
 start = input()
+reminder.checkForReminder()
 
 # if(query in similar_artist_keyword):
 
@@ -21,6 +23,7 @@ def main_flow():
     similar_artist_keyword = ['similar', 'like', 'artist', 'artists']
     upcoming_shows_keyword = ['concert', 'concerts', 'shows', 'gig', 'gigs', 'show', 'event']
     upcoming_albums_keyword = ['albums', 'new', 'album', 'release', 'releases', 'records']
+    reminder_keyword = ['reminder', 'notification', 'notify']
 
     tts.speak('Saylem activated')
     print('Saylem activated')
@@ -79,6 +82,14 @@ def main_flow():
             print('---------------------')
             time.sleep(1)
             ua.upcoming()
+        elif(i in reminder_keyword):
+            tts.speak('What artist would you like to set a reminder for')
+            remindArtist = input()
+            tts.speak('What is the venue')
+            remindVenue = input()
+            tts.speak('What is the date. Specify in date month format')
+            remindDate = input()
+            reminder.setReminder(remindDate, remindArtist, remindVenue)
         else:
             tts.speak('query not found')
 
