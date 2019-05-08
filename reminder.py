@@ -1,15 +1,18 @@
 #!/usr/bin/python3
-import time
+import datetime
+from datetime import date
 import os
 
 import tts
 
 def checkForReminder():
     f = open('bin/Reminder/reminderOne.txt', 'r')
-    today = time.strftime('%d %m')
-    print(today)
+    today = date.today()
+    todayDateDay = today.strftime('%d').lstrip('0')
+    todayDateMonth = today.strftime('%m').lstrip('0')
+    todayDate = todayDateDay + ' ' + todayDateMonth
     for line in f:
-        if today in line:
+        if todayDate in line:
             print('found')
             total = f.readlines()
             artist = total[0].strip()
@@ -18,7 +21,7 @@ def checkForReminder():
             print(artist + ' is on today at ' + venue)
 
 def setReminder(date, artist, venue):
-    file = open('bin/Reminder/reminderOne.txt', 'w')
+    file = open('bin/Reminder/reminderOne.txt', 'a')
 
     file.writelines('%s\n%s\n%s\n' % (date, artist, venue))
 
