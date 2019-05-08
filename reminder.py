@@ -5,16 +5,21 @@ import os
 import tts
 
 def checkForReminder():
-    f = open('/home/aaron/Documents/Selim.io/bin/Reminder/reminderOne.txt', 'r')
-    today = time.strftime('%d%m')
+    f = open('bin/Reminder/reminderOne.txt', 'r')
+    today = time.strftime('%d %m')
+    print(today)
     for line in f:
         if today in line:
-            line = line.split(' ')
-            tts.speak(line[1] + ' is on today at ' + line[2])
+            print('found')
+            total = f.readlines()
+            artist = total[0].strip()
+            venue = total[1].strip()
+            # tts.speak(line[1] + ' is on today at ' + line[2])
+            print(artist + ' is on today at ' + venue)
 
 def setReminder(date, artist, venue):
-    file = open('/home/aaron/Docouments/Selim.io/bin/Reminders/reminderOne.txt', 'a')
+    file = open('bin/Reminder/reminderOne.txt', 'w')
 
-    file.writelines('%d\n%s\n%s\n' % (date, artist, venue))
+    file.writelines('%s\n%s\n%s\n' % (date, artist, venue))
 
     file.close()

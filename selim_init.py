@@ -84,12 +84,16 @@ def main_flow():
             ua.upcoming()
         elif(i in reminder_keyword):
             tts.speak('What artist would you like to set a reminder for')
+            print('What artist would you like to set a reminder for')
             remindArtist = input()
             tts.speak('What is the venue')
+            print('What is the venue')
             remindVenue = input()
             tts.speak('What is the date. Specify in date month format')
+            print('What is the date. Specify in date month format')
             remindDate = input()
             reminder.setReminder(remindDate, remindArtist, remindVenue)
+            tts.speak('Your reminder has been set')
         else:
             tts.speak('query not found')
 
