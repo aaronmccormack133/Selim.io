@@ -6,6 +6,7 @@ import tts
 import similarArtists as sa
 import upcomingAlbums as ua
 import reminder
+import audioPreview as ap
 
 # external imports
 import time
@@ -24,6 +25,7 @@ def main_flow():
     upcoming_shows_keyword = ['concert', 'concerts', 'shows', 'gig', 'gigs', 'show', 'event']
     upcoming_albums_keyword = ['albums', 'new', 'album', 'release', 'releases', 'records']
     reminder_keyword = ['reminder', 'notification', 'notify']
+    audioclip_keyword = ['preview', 'clip', 'track', 'sample']
 
     tts.speak('Saylem activated')
     print('Saylem activated')
@@ -94,6 +96,11 @@ def main_flow():
             remindDate = input()
             reminder.setReminder(remindDate, remindArtist, remindVenue)
             tts.speak('Your reminder has been set')
+        elif(i in audioclip_keyword):
+            # to do 
+            print('what artist')
+            audioClipArtist = input()
+            ap.returnUrl(audioClipArtist)
         else:
             tts.speak('query not found')
 

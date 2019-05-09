@@ -1,0 +1,1 @@
+ffmpeg $(youtube-dl -g --extract-audio 'http://www.youtube.com/watch?v=M_5kdIhx_to' | sed "s/.*/-ss 00:05 -i &/") -t 0:30 -c copy out.mp4

@@ -8,6 +8,7 @@ pip3 install requests
 pip3 install BeautifulSoup4
 pip3 install pyttsx3
 pip3 install SpeechRecognition
+-H pip3 install --upgrade youtube-dl
 
 chmod +x scrape_cron.sh
 chmod +x selim_init.py
