@@ -97,10 +97,13 @@ def main_flow():
             reminder.setReminder(remindDate, remindArtist, remindVenue)
             tts.speak('Your reminder has been set')
         elif(i in audioclip_keyword):
-            # to do 
+            tts.speak('what artist would you like to hear a clip of?')
             print('what artist')
             audioClipArtist = input()
-            ap.returnUrl(audioClipArtist)
+            tts.speak('Audio preview of ' + audioClipArtist + ' starting now.')
+            tts.speak('Please wait a moment while it loads')
+            ap.getUrl(audioClipArtist)
+
         else:
             tts.speak('query not found')
 

@@ -13,3 +13,4 @@ pip3 install SpeechRecognition
 chmod +x scrape_cron.sh
 chmod +x selim_init.py
 ./scrape_cron.sh
+chmod +x youtube.sh
