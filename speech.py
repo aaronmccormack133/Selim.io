@@ -3,17 +3,27 @@ import speech_recognition as SR
 
 r = SR.Recognizer()
 
-with SR.Microphone(device_index=1) as source:
-    print('Say Something')
-    r.pause_threshold = 1
-    r.adjust_for_ambient_noise(source, duration=1)
-    audio = r.listen(source)
+# with SR.Microphone(device_index=1) as source:
+#     print('Say Something')
+#     r.pause_threshold = 1
+#     r.adjust_for_ambient_noise(source, duration=1)
+#     audio = r.listen(source)
 
-    try:
-        text = r.recognize_google(audio)
-        print('you said: {}' .format(text))
-    except:
-        print('could not pick up')
+#     try:
+#         text = r.recognize_google(audio)
+#         print('you said: {}' .format(text))
+#     except:
+#         print('could not pick up')
+
+with SR.Microphone() as source:
+    print('say something test')
+    audio = r.listen(source)
+    print('done')
+
+try:
+    print("text: " + r.recognize_google(audio))
+except Exception as e:
+    print(e)
 
 # import pyaudio
 # import wave

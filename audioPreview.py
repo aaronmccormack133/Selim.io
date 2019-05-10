@@ -22,5 +22,5 @@ def getUrl(artistName):
             results = re.findall(r'href=\"\/watch\?v=(.{11})', page.read().decode())
             bashResp = "http://www.youtube.com/watch?v=" + results[1]
             with open('youtube.sh', 'w') as f:
-                f.writelines("#!/bin/sh\n" + scriptStart + bashResp + scriptEnd)
+                f.writelines("#!/bin/sh\nrm -r bin/AudioPreview/*\n" + scriptStart + bashResp + scriptEnd)
     subprocess.call(['./youtube.sh'])

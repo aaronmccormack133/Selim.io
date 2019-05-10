@@ -9,6 +9,7 @@ pip3 install BeautifulSoup4
 pip3 install pyttsx3
 pip3 install SpeechRecognition
 -H pip3 install --upgrade youtube-dl
+pip3 install PyAudio
 
 chmod +x scrape_cron.sh
 chmod +x selim_init.py
