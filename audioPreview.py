@@ -11,16 +11,17 @@ def getUrl(artistName):
     artistName = artistName.strip()
     for file in os.listdir('bin/AudioPreview/'):
         if fnmatch.fnmatch(file, artistName+'.mp4'):
-            script = "#!/bin/sh\ncvlc --play-and-exit bin/AudioPreview/" + artistName + ".mp4"
+            print('found')
+            script = "#!/bin/sh\ncvlc --play-and-exit bin/AudioPreview/" + artistName + ".mkv"
             with open('youtube.sh', 'w') as f:
                 f.writelines(script)
         else:
             scriptStart = "ffmpeg -y $(youtube-dl -g --extract-audio '"
-            scriptEnd = "' | sed \"s/.*/-ss 00:10 -i &/\") -t 0:30 -c copy bin/AudioPreview/" + artistName + ".mp4\ncvlc --play-and-exit bin/AudioPreview/" + artistName + ".mp4"
+            scriptEnd = "' | sed \"s/.*/-ss 00:10 -i &/\") -t 0:30 -c copy bin/AudioPreview/" + artistName + ".mkv\ncvlc --play-and-exit bin/AudioPreview/" + artistName + ".mkv"
             query = urllib.parse.urlencode({"search_query": artistName})
             page = urllib.request.urlopen("http://www.youtube.com/results?" + query)
             results = re.findall(r'href=\"\/watch\?v=(.{11})', page.read().decode())
             bashResp = "http://www.youtube.com/watch?v=" + results[1]
             with open('youtube.sh', 'w') as f:
-                f.writelines("#!/bin/sh\nrm -r bin/AudioPreview/*\n" + scriptStart + bashResp + scriptEnd)
+                f.writelines("#!/bin/sh\nrm -f bin/AudioPreview/*\n" + scriptStart + bashResp + scriptEnd)
     subprocess.call(['./youtube.sh'])
