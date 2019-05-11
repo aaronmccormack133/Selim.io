@@ -15,9 +15,9 @@ soup = BeautifulSoup(pageResp, 'html.parser')
 calender = soup.find('table', {'class': 'musicTable'})
 
 # computer
-file = open('/home/aaron/Documents/Selim.io/bin/UpcomingAlbums/upcomingRelease.txt', 'w')
+# file = open('/home/aaron/Documents/Selim.io/bin/UpcomingAlbums/upcomingRelease.txt', 'w')
 # pi
-#file = open('/home/pi/Documents/Selim.io/bin/UpcomingAlbums/upcomingRelease.txt')
+file = open('/home/pi/Documents/Selim.io/bin/UpcomingAlbums/upcomingRelease.txt', 'w')
 
 for tr in calender.find_all('tr'):
     if tr.find('a') is None:
