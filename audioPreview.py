@@ -12,6 +12,7 @@ def getUrl(artistName):
     for file in os.listdir('bin/AudioPreview/'):
         if fnmatch.fnmatch(file, artistName+'.mp4'):
             print('found')
+            artistName = artistName.replace(' ', '-')
             script = "#!/bin/sh\ncvlc --play-and-exit bin/AudioPreview/" + artistName + ".mkv"
             with open('youtube.sh', 'w') as f:
                 f.writelines(script)

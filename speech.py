@@ -1,17 +1,27 @@
 #!/usr/bin/python3
 import speech_recognition as SR
+import pyaudio
+
+p = pyaudio.PyAudio()
+for i in range(p.get_device_count()):
+    info = p.get_device_info_by_index(i)
+    print(info['index'], info['name'])
 
 r = SR.Recognizer()
 
-with SR.Microphone() as source:
-    print('say something test')
-    audio = r.listen(source)
-    print('done')
+def speech():
+    with SR.Microphone(device_index=2) as source:
+        print('say something test')
+        r.adjust_for_ambient_noise(source, duration=1)
+        audio = r.listen(source)
+        print('done')
 
-try:
-    print("text: " + r.recognize_google(audio))
-except Exception as e:
-    print(e)
+    try:
+        # print("text: " + r.recognize_google(audio))
+        return(r.recognize_google(audio))
+    except Exception as e:
+        print(e)
+        return(e)
 
 # import pyaudio
 # import wave

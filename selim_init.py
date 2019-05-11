@@ -7,6 +7,7 @@ import similarArtists as sa
 import upcomingAlbums as ua
 import reminder
 import audioPreview as ap
+import speech
 
 # external imports
 import time
@@ -15,7 +16,8 @@ tts.speak('Saylem initialized. Say my name when you would like to start')
 print('Saylem initialized. Say my name when you would like to start')
 print('---------------------')
 
-start = input()
+start = speech.speech()
+print(start)
 reminder.checkForReminder()
 
 # if(query in similar_artist_keyword):
@@ -32,7 +34,9 @@ def main_flow():
     tts.speak("What would you like?")
     print('What would you like?')
     print('---------------------')
-    query = input()
+    # query = input()
+    query = speech.speech()
+    print(query)
     
     for i in query.split(' '):
         if(i in similar_artist_keyword):
@@ -40,11 +44,13 @@ def main_flow():
             tts.speak('what artist')
             print('what artist?')
             print('---------------------')
-            artist = input()
+            # artist = input()
+            artist = speech.speech()
             tts.speak('how many results would you like')
             print('how many results would you like')
             print('---------------------')
-            limit = input()
+            # limit = input()
+            limit = speech.speech()
             tts.speak('artists that are similar to ' + artist + ' are...')
             print('artists that are similar to ' + artist + ' are...')
             print('---------------------')
@@ -109,5 +115,7 @@ def main_flow():
 
 if('Selim' or 'Saylem' in start):
     main_flow()
+else:
+    pass
 
         
