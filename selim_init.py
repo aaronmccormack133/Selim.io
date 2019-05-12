@@ -11,15 +11,6 @@ import speech
 
 # external imports
 import time
-
-tts.speak('Saylem initialized. Say my name when you would like to start')
-print('Saylem initialized. Say my name when you would like to start')
-print('---------------------')
-
-# start = speech.speech()
-start = input()
-print(start)
-reminder.checkForReminder()
         
 def similarArtist():
     tts.speak('what artist')
@@ -113,6 +104,10 @@ def main_flow():
     print('What would you like?')
     print('---------------------')
     query = input()
+    while query not in similar_artist_keyword + upcoming_albums_keyword + upcoming_shows_keyword + reminder_keyword + audioclip_keyword:
+        tts.speak('query not found. Please try again')
+        query = input
+        # query = speech.speech()
     # query = speech.speech()
     print(query)
     
@@ -120,20 +115,41 @@ def main_flow():
         if(i in similar_artist_keyword):
             # similar artists
             similarArtist()
+            tts.speak('Query Finished. Submit another query if you would like.')
         elif(i in upcoming_shows_keyword):
             # upcoming concerts
             upcomingShows()
+            tts.speak('Query Finished. Submit another query if you would like.')
         elif(i in upcoming_albums_keyword):
             # getting new albums
-            upcomingShows()
+            upcomingAlbums()
+            tts.speak('Query Finished. Submit another query if you would like.')
         elif(i in reminder_keyword):
             reminders()
+            tts.speak('Query Finished. Submit another query if you would like.')
         elif(i in audioclip_keyword):
             audioClip()
+            tts.speak('Query Finished. Submit another query if you would like.')
         else:
             tts.speak('query not found')
 
-if('salem' in start):
-    main_flow()
-else:
-    pass
+def main():
+    while True:
+        prompt()
+
+def prompt():
+    tts.speak('Saylem initialized. Say my name when you would like to start')
+    print('Saylem initialized. Say my name when you would like to start')
+    print('---------------------')
+
+    # start = speech.speech()
+    start = input()
+    print(start)
+    reminder.checkForReminder()
+
+    if('salem' in start):
+        main_flow()
+    else:
+        pass
+
+if __name__ == '__main__': main()

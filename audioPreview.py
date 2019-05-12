@@ -36,5 +36,3 @@ def getUrl(artistName):
             with open('youtube.sh', 'w') as f:
                 f.writelines("#!/bin/sh\nrm -f bin/AudioPreview/*\n" + scriptStart + bashResp + scriptEnd)
     subprocess.call(['./youtube.sh'])
-
-getUrl('black sabbath')
