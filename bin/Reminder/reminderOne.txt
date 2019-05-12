@@ -1,21 +1,6 @@
-9 5
-black sabbath
-3arena
-8 5
-infest
-voodoo lounge
-0507
-Metallica
-delaine
-2111
-then pass sultana Tash sultana
-Malahide
-36
-marauders
-
-2109
-chic
-
-2307
-the pain
+12 5
+Thin Lizzy
 Dublin
+16 5
+presentation
+NCI

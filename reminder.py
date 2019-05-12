@@ -17,7 +17,7 @@ def checkForReminder():
             total = f.readlines()
             artist = total[0].strip()
             venue = total[1].strip()
-            # tts.speak(line[1] + ' is on today at ' + line[2])
+            tts.speak(artist + ' is on today at ' + venue)
             print(artist + ' is on today at ' + venue)
 
 def setReminder(date, artist, venue):
@@ -26,9 +26,7 @@ def setReminder(date, artist, venue):
     day, month = date[:len(date)//2], date[len(date)//2:]
     day = day.lstrip('0')
     month = month.lstrip('0')
-    print('day: ' + day)
-    print('month: ' + month)
-
+    date = day + ' ' + month
 
     file.writelines('%s\n%s\n%s\n' % (date, artist, venue))
 

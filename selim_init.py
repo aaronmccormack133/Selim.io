@@ -34,7 +34,8 @@ def upcomingShows():
     print('---------------------')
     # concertType = input()
     concertType = speech.speech()
-    if('all' in concertType):
+    print(concertType)
+    if('concert' in concertType):
     # getting all upcoming concerts
         tts.speak('Specify a location')
         print('specify a location')
@@ -143,9 +144,9 @@ def main():
     print(start)
     reminder.checkForReminder()
 
-    if('salem' or 'Salem' in start):
+    if('Sale' or 'Salem' in start):
         main_flow()
     else:
-        pass
+        return
 
 if __name__ == '__main__': main()

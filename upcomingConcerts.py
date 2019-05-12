@@ -28,7 +28,9 @@ def cleanEvent(eventResp):
 	return date
 
 def ticketMasterCall(city, results):
-	params = (ticketmaster + 'apikey=' + ticketMasterKey + '&countryCode=IE&sort=date,asc&city=' + city + '&size=' + results)
+	if(' ' in city):
+		city = city.replace(' ', '+')
+	params = (ticketmaster + 'apikey=' + ticketMasterKey + '&sort=date,asc&city=' + city + '&size=' + results)
 	response = requests.get(params).json()
 	print(params)
 	for event in response["_embedded"]["events"]:
