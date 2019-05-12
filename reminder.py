@@ -23,6 +23,13 @@ def checkForReminder():
 def setReminder(date, artist, venue):
     file = open('bin/Reminder/reminderOne.txt', 'a')
 
+    day, month = date[:len(date)//2], date[len(date)//2:]
+    day = day.lstrip('0')
+    month = month.lstrip('0')
+    print('day: ' + day)
+    print('month: ' + month)
+
+
     file.writelines('%s\n%s\n%s\n' % (date, artist, venue))
 
     file.close()
