@@ -6,9 +6,7 @@ import requests
 import config
 import tts
 
-# apiKey = os.environ.get('LAST.FM_API')
 apiKey = config.LASTFM_API
-# sharedSecret = os.environ.get('LAST.FM_SS')
 sharedSecret = config.LASTFM_SS
 apiUrl = "http://ws.audioscrobbler.com/2.0/?"
 

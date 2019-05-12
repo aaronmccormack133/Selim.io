@@ -20,11 +20,10 @@ import speech
 # external imports
 import time
 
-"""
-    This is the main file for operations for Selim.io. This file is executed to run all of the functions that interact with the user.
-    In order to use the application via Speech, all of the speech.speech() calls must be uncommented
-    In order to use the application via command line, all of the input() calls must be uncommented.
-"""
+# This is the main file for operations for Selim.io. This file is executed to run all of the functions that interact with the user.
+# In order to use the application via Speech, all of the speech.speech() calls must be uncommented
+# In order to use the application via command line, all of the input() calls must be uncommented.
+# The application must be run on a linux environment. If not there will be dependency and directory issues
         
 # Input: Artist, Limit(number of responses)
 # Output: Calls the similarArtist function in the file. Output results in Text-to-Speech
