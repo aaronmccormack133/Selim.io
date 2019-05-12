@@ -9,8 +9,10 @@ import re
 import config
 import tts
 
+# If you wish the file to be run on its own, uncomment this line
 # query = input('Query: ')
 
+# Setting the API Keys and Urls
 ticketmaster = "https://app.ticketmaster.com/discovery/v2/events.json?classificationName=music&"
 ticketMasterKey = config.TICKETMASTER_API
 bandsintown = 'https://rest.bandsintown.com/artists/'
@@ -27,6 +29,9 @@ def cleanEvent(eventResp):
 	date = dateNonSplit[2] + ' ' + dateNonSplit[1] + ' ' + dateNonSplit[0]
 	return date
 
+# Input: City (city the user wishes to get results for), Results (Number of results)
+# Output: Writes the query response to the file. Outputs info via tts
+# Description: By using the input the user submits, ticketmaster is queried and all upcoming concerts in the area are returned
 def ticketMasterCall(city, results):
 	if(' ' in city):
 		city = city.replace(' ', '+')
@@ -40,6 +45,9 @@ def ticketMasterCall(city, results):
 
 	file.close()
 
+# Input: Artist 
+# Output: Writes response to the file. Outputs info via tts
+# Description: By using the artist the user submits, bandsintown is queried and all concerts relating to that artist are returned.
 def bandsintownCall(artist):
 	# Call the LRU here, checking to see if its in the list
 	# if not add it
@@ -59,6 +67,7 @@ def bandsintownCall(artist):
 	print(params)
 	response = requests.get(params).json()
 	for event in response:
+		# Using the cleanEvent() query above to manipulate the data.
 		date = cleanEvent(event)
 		file.writelines('\n%s\n' % date + artist)
 		file.writelines('\n%s' % event["venue"]["city"])
@@ -83,4 +92,5 @@ def concertCall(input, city, limit):
 	else:
 		bandsintownCall(input)
 
+# uncomment this line if you want to run this file only.
 # concertCall(query)

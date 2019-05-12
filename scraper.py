@@ -14,7 +14,7 @@ pageResp = pageRequest.content.decode('ISO-8859-1', 'replace')
 soup = BeautifulSoup(pageResp, 'html.parser')
 calender = soup.find('table', {'class': 'musicTable'})
 
-# computer
+# if using a desktop replace aaron with the name of the user
 # file = open('/home/aaron/Documents/Selim.io/bin/UpcomingAlbums/upcomingRelease.txt', 'w')
 # pi
 file = open('/home/pi/Documents/Selim.io/bin/UpcomingAlbums/upcomingRelease.txt', 'w')

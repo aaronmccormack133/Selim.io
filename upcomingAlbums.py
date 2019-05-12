@@ -6,5 +6,6 @@ def upcoming():
 
     f = file.readlines()
     for x in f:
+        # Output each line in the file
         tts.speak(x)
         print(x)

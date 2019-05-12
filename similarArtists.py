@@ -12,7 +12,12 @@ apiKey = config.LASTFM_API
 sharedSecret = config.LASTFM_SS
 apiUrl = "http://ws.audioscrobbler.com/2.0/?"
 
+# Input: artist name, limit (response limit)
+# Output: List of similar artists in tts. Info written to tts.
+# Description: The user inputs the name of the artist they are searching for recommendations for. The query is sent to last.fm 
+# the return is which artists the websites deems similar.
 def call(artistName, limit):
+    # Check in LRU
 
     if (' ' in artistName):
         artistName = artistName.replace(' ', '+')

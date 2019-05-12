@@ -5,6 +5,10 @@ import os
 
 import tts
 
+# Input: Todays date. User input from setReminder()
+# Output: Event notification
+# Description: Todays date is got from the datetime import and is compared against the dates in the file that the user writes. 
+# If one matches, that is outputted to the user.
 def checkForReminder():
     f = open('bin/Reminder/reminderOne.txt', 'r')
     today = date.today()
@@ -20,6 +24,9 @@ def checkForReminder():
             tts.speak(artist + ' is on today at ' + venue)
             print(artist + ' is on today at ' + venue)
 
+# Input: Date (the date of the event), Artist (the name of the event), Venue (Where the event is on)
+# Output: Write to file
+# Description: The user submits the information regarding an event of their choosing and will be notified when the event starts
 def setReminder(date, artist, venue):
     file = open('bin/Reminder/reminderOne.txt', 'a')
 

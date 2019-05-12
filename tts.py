@@ -2,13 +2,13 @@
 import pyttsx3
 import subprocess
 
-# def speak(input):
-#     subprocess.call('echo '+input+'|festival --tts', shell=True)
-
+# Input: Using the input received from the query
+# Output: Synthesized voice speaking the contents of input
 def speak(input):
     engine = pyttsx3.init()
     voice = engine.getProperty('voices')
     rate = engine.getProperty('rate')
+    # Loops through the voices that are installed in the system. Uncomment to find one if you would like to replace the standard.
     # for voice in voices:
     #     engine.setProperty('voice', voice.id)
     #     print(voice.id)
